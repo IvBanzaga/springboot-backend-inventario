@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/productos")
-@CrossOrigin(origins = "https://angular-spring-boot-1l9fuzgts-tenerifedev.vercel.app/") // Angular corre en 4200
+@CrossOrigin(origins = "*") 
 public class ProductoController {
 
     // Servicio para manejar la lógica de negocio
