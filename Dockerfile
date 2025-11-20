@@ -1,13 +1,21 @@
-# Etapa de compilación
-FROM maven:3.9.0-eclipse-temurin-17 AS build
+# Etapa de compilación con Java 21
+FROM eclipse-temurin:21-jdk AS build
+
 WORKDIR /app
+
 COPY pom.xml .
 COPY src ./src
+
+RUN mvn -version || true
 RUN mvn clean package -DskipTests
 
 # Etapa de ejecución
-FROM eclipse-temurin:17-jre-alpine
+FROM eclipse-temurin:21-jre
+
 WORKDIR /app
+
 COPY --from=build /app/target/*.jar app.jar
+
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "app.jar"]
+
+CMD ["java", "-jar", "/app/app.jar"]
