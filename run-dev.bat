@@ -1,0 +1,12 @@
+@echo off
+REM Script para ejecutar la aplicación con variables de entorno configuradas
+
+REM Configurar variables de entorno
+set SUPABASE_API_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxxcmNrem9lc3NoaHp5Ym9sbHdzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTc0MjE5MTIsImV4cCI6MjA3Mjk5NzkxMn0.amIdhLqlCd0dBNcyB8K_1xQNZMnFTpBFZ8TRSuzwPhc
+set SUPABASE_API_KEY_DEV=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxxcmNrem9lc3NoaHp5Ym9sbHdzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTc0MjE5MTIsImV4cCI6MjA3Mjk5NzkxMn0.amIdhLqlCd0dBNcyB8K_1xQNZMnFTpBFZ8TRSuzwPhc
+set PORT=8080
+
+REM Ejecutar la aplicación
+call mvnw.cmd spring-boot:run -Dspring.profiles.active=dev
+
+pause
